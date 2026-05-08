@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIGULIN FRUIT IMPORT S.R.L. | Global Merchant Wholesalers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Prata&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --trade-blue: #0f172a;
+            --accent-gold: #b89a67;
+            --fresh-green: #166534;
+            --soft-white: #f8fafc;
+            --text-slate: #475569;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; color: var(--text-slate); background: var(--soft-white); }
+        h1, h2, h3 { font-family: 'Prata', serif; color: var(--trade-blue); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+        /* 1. HERO SECTION */
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5)), 
+                        url('https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+            color: white; 
+            border-bottom: 5px solid var(--accent-gold);
+        }
+        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); line-height: 1.1; margin-bottom: 25px; color: white; }
+        .hero p { font-size: 1.2rem; letter-spacing: 4px; font-weight: 300; text-transform: uppercase; color: var(--accent-gold); }
+
+        /* UTILS */
+        section { padding: 120px 0; }
+        .tagline { color: var(--fresh-green); font-weight: 700; font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; display: block; text-align: center; }
+        .section-title { font-size: 3rem; text-align: center; margin-bottom: 60px; line-height: 1.2; }
+
+        /* 2. ABOUT US (ROMANIA HUB) */
+        .about-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+        .about-text p { font-size: 1.1rem; margin-bottom: 25px; }
+
+        /* 3. TRADE SPECIALTIES */
+        .specialties { background: white; }
+        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .spec-card { padding: 50px; background: var(--soft-white); border-left: 5px solid var(--trade-blue); transition: var(--transition); }
+        .spec-card:hover { transform: translateY(-10px); border-left-color: var(--accent-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .spec-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* 4. LOGISTICS PROCESS */
+        .process { background: var(--trade-blue); color: white; }
+        .process h2 { color: white; }
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+        .process-step { position: relative; }
+        .step-num { font-family: 'Prata'; font-size: 5rem; color: rgba(255, 255, 255, 0.05); position: absolute; top: -45px; left: 0; }
+        .process-step h3 { margin-bottom: 15px; position: relative; z-index: 1; color: var(--accent-gold); }
+        .process-step p { opacity: 0.8; font-weight: 300; font-size: 0.95rem; }
+
+        /* 5. CONTACT FORM */
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-weight: 700; font-size: 0.75rem; margin-bottom: 10px; text-transform: uppercase; color: var(--trade-blue); letter-spacing: 2px; }
+        .form-control { width: 100%; padding: 18px; border: 1px solid #e2e8f0; border-radius: 0; font-family: inherit; transition: var(--transition); }
+        .form-control:focus { border-color: var(--accent-gold); outline: none; }
+        .submit-btn { padding: 20px 50px; background: var(--trade-blue); color: white; border: none; font-weight: 700; cursor: pointer; transition: var(--transition); width: 100%; text-transform: uppercase; letter-spacing: 3px; }
+        .submit-btn:hover { background: var(--accent-gold); }
+
+        /* 6. FOOTER */
+        footer { padding: 80px 0; background: #0a0f1a; color: #64748b; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; }
+        .footer-brand h2 { color: white; font-size: 2.2rem; margin-bottom: 15px; }
+        .footer-info strong { color: var(--accent-gold); text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 5px; }
+        .copyright { margin-top: 60px; text-align: center; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 35px; }
+
+        @media (max-width: 992px) {
+            .about-wrap, .process-grid, .contact-wrap, .footer-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Global Import Integrity</h1>
+            <p>PIGULIN FRUIT IMPORT S.R.L. | Romania's Elite Wholesale Hub</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="about-wrap">
+                <div class="about-text">
+                    <span class="tagline">Our Enterprise</span>
+                    <h2 class="section-title" style="text-align: left;">High-Velocity Trade in Ramnicu Valcea</h2>
+                    <p>Located in the commercial corridor of Valcea, PIGULIN FRUIT IMPORT S.R.L. is a premier leader in the Grocery and Related Product Merchant Wholesalers sector. We bridge the gap between global growers and regional markets with absolute logistical precision.</p>
+                    <p>From our strategic headquarters at Str. I. C. Bratianu, we manage a robust trade network specializing in nondurable goods. We believe that food import is a precise science, requiring absolute structural integrity and freshness control.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000" alt="Fresh Produce Logistics" style="width:100%; border-radius: 2px; box-shadow: 20px 20px 0 var(--accent-gold);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialties">
+        <div class="container">
+            <span class="tagline">Wholesale Expertise</span>
+            <h2 class="section-title">Specialized Trade Channels</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>Fresh Produce Wholesaling</h3>
+                    <p>High-integrity sourcing and distribution of fresh fruits and vegetables across the Romanian wholesale trade sector.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Meat & Protein Distribution</h3>
+                    <p>Managing professional-grade supply chains for meats and meat products with guaranteed quality control.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Apparel & Notions Trade</h3>
+                    <p>Diversified merchant wholesaling of apparel and piece goods, serving varied consumer market requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <span class="tagline" style="color: var(--accent-gold);">Operational Protocol</span>
+            <h2 class="section-title">Our Strategic Pipeline</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <h3>Quality Audit</h3>
+                    <p>Every imported asset undergoes a rigorous technical audit to ensure compliance with global freshness benchmarks.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">02</div>
+                    <h3>Technical Staging</h3>
+                    <p>Utilizing our Ramnicu Valcea hub to stage commodities for rapid fulfillment across domestic channels.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <h3>Market Dispatch</h3>
+                    <p>Executing high-integrity fulfillment cycles to ensure agricultural and retail assets reach their destinations with punctuality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="contact-wrap">
+                <div>
+                    <span class="tagline" style="text-align: left;">Engagement</span>
+                    <h2 class="section-title" style="text-align: left;">Initialize Import Link</h2>
+                    <p>Contact our Romania headquarters for wholesale catalogs, volume pricing, or strategic trade partnership inquiries.</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label>ENTITY NAME</label>
+                            <input type="text" class="form-control" placeholder="Company Name">
+                        </div>
+                        <div class="form-group">
+                            <label>PROFESSIONAL EMAIL</label>
+                            <input type="email" class="form-control" placeholder="info@pigulinfruitimport.wine">
+                        </div>
+                        <div class="form-group">
+                            <label>MISSION BRIEF</label>
+                            <textarea class="form-control" rows="5" placeholder="Outline your trade requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Execute Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>PIGULIN FRUIT</h2>
+                    <p>Trade Integrity. Valcea Reliability.</p>
+                </div>
+                <div class="footer-info">
+                    <p><strong>Headquarters:</strong> STR. I. C. BRATIANU NR. 3, Ramnicu Valcea, Romania</p>
+                    <p><strong>Digital Contact:</strong> info@pigulinfruitimport.wine</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 PIGULIN FRUIT IMPORT S.R.L. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
