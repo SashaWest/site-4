@@ -3,191 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divine Design Health LLC | Advanced Ambulatory Care & Wellness</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Divine Design Health LLC | Elite Ambulatory Care & Wellness</title>
     <style>
+        /* STYLING SYSTEM 
+           Using CSS Variables for consistency 
+        */
         :root {
-            --med-blue: #2c5282;
-            --soft-cyan: #4fd1c5;
-            --deep-slate: #1a202c;
-            --surface-light: #f7fafc;
-            --text-gray: #4a5568;
+            --primary: #1e3a34; /* Deep Forest Green */
+            --accent: #2ecc71;  /* Vibrant Health Green */
+            --secondary: #2c3e50; /* Professional Slate */
+            --text-dark: #1a1a1a;
+            --text-light: #f9f9f9;
             --white: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-main: linear-gradient(135deg, #1e3a34 0%, #2c3e50 100%);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.7; color: var(--text-gray); background: var(--white); }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--med-blue); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
-
-        /* HERO SECTION */
-        .hero { 
-            height: 90vh; 
-            display: flex; 
-            align-items: center; 
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), 
-                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
-            border-bottom: 4px solid var(--soft-cyan);
+        * {
+            box-sizing: border-box;
         }
-        .hero-inner { width: 100%; text-align: left; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin-bottom: 25px; }
-        .hero p { font-size: 1.1rem; letter-spacing: 4px; font-weight: 600; text-transform: uppercase; color: var(--soft-cyan); }
 
-        /* SECTION UTILS */
-        section { padding: 120px 0; }
-        .tagline { color: var(--soft-cyan); font-weight: 700; font-size: 0.85rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .section-title { font-size: 3rem; margin-bottom: 50px; line-height: 1.2; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: #f4f7f6;
+        }
 
-        /* ABOUT US (LA HUB) */
-        .about-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
-        .about-text p { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 25px; }
+        /* 1. HERO SECTION (Main Screen) 
+           Uses a complex gradient to simulate a background image 
+        */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--gradient-main);
+            position: relative;
+            overflow: hidden;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
 
-        /* SERVICES (HEALTHCARE CHANNELS) */
-        .services { background: var(--surface-light); }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .service-card { padding: 60px; background: var(--white); border-radius: 4px; transition: var(--transition); border-top: 6px solid transparent; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .service-card:hover { transform: translateY(-12px); border-top-color: var(--soft-cyan); }
-        .service-card h3 { margin-bottom: 20px; font-size: 1.6rem; }
+        /* Background texture to simulate "image depth" */
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
 
-        /* PROFESSIONAL INTEGRITY */
-        .edge-block { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
-        .edge-item h3 { font-size: 1.4rem; margin-bottom: 15px; }
-        .edge-item p { font-size: 0.95rem; }
+        header h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
 
-        /* CONTACT FORM */
-        .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; }
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-weight: 700; font-size: 0.75rem; margin-bottom: 10px; text-transform: uppercase; color: var(--med-blue); letter-spacing: 2px; }
-        .form-control { width: 100%; padding: 18px; border: 1px solid #e2e8f0; border-radius: 2px; font-family: inherit; transition: var(--transition); }
-        .form-control:focus { border-color: var(--soft-cyan); outline: none; }
-        .submit-btn { padding: 20px 50px; background: var(--med-blue); color: var(--white); border: none; font-weight: 700; cursor: pointer; transition: var(--transition); width: 100%; text-transform: uppercase; letter-spacing: 3px; }
-        .submit-btn:hover { background: var(--soft-cyan); }
+        header p {
+            font-size: clamp(1.1rem, 2vw, 1.6rem);
+            max-width: 850px;
+            margin-top: 25px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
 
-        /* GLOBAL FOOTER */
-        footer { padding: 100px 0 50px; background: var(--deep-slate); color: #94a3b8; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; }
-        .footer-brand h2 { color: var(--white); font-size: 2.2rem; margin-bottom: 20px; }
-        .footer-info strong { color: var(--soft-cyan); text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 6px; letter-spacing: 2px; }
-        .copyright { margin-top: 80px; text-align: center; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; letter-spacing: 2px; }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
 
-        @media (max-width: 992px) {
-            .about-wrap, .edge-block, .contact-wrap, .footer-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3.2rem; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* 2. ABOUT SECTION 
+        */
+        .section-padding {
+            padding: 100px 10%;
+        }
+
+        .about-section {
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .section-tag {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        .about-content {
+            max-width: 950px;
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        /* 3. SERVICES SECTION 
+        */
+        .services-section {
+            background: #fdfdfd;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 4px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border-bottom: 4px solid transparent;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        /* 4. ADVANTAGES (Photo Placeholder Block 1)
+           Using a solid background with accent border instead of an image
+        */
+        .advantages-section {
+            background: var(--secondary);
+            color: var(--white);
+            position: relative;
+        }
+
+        .advantages-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .advantage-item {
+            flex: 1;
+            min-width: 280px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid var(--accent);
+        }
+
+        .advantage-item h4 {
+            font-size: 1.4rem;
+            margin: 0 0 15px 0;
+            color: var(--accent);
+        }
+
+        /* 5. PROCESS SECTION (Photo Placeholder Block 2)
+        */
+        .process-section {
+            background-color: var(--white);
+        }
+
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+        }
+
+        .step-circle {
+            width: 90px;
+            height: 90px;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0 auto 25px;
+            border: 2px solid var(--accent);
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* 6. CONTACT FORM 
+        */
+        .contact-section {
+            background: linear-gradient(135deg, #f4f7f6 0%, #e8efed 100%);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .form-info-text {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            color: #777;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .input-placeholder {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #edf2f0;
+            border-radius: 5px;
+            background: #fbfdfc;
+            min-height: 58px;
+            color: #999;
+        }
+
+        .submit-trigger {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 30px;
+        }
+
+        .submit-trigger:hover {
+            background: #27ae60;
+        }
+
+        /* 7. CONTACTS / FOOTER 
+        */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 10% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 50px;
+        }
+
+        .footer-logo h2 {
+            margin: 0;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+
+        .footer-contact h4 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-contact p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.5;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .section-padding { padding: 60px 5%; }
+            .contact-container { padding: 30px; }
+            header h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <div class="hero-inner">
-                <p>Divine Design Health LLC</p>
-                <h1>Tailored Wellness Solutions.</h1>
-                <p style="color: var(--med-blue); letter-spacing: 2px;">Professional Ambulatory Care Services</p>
-            </div>
-        </div>
+    <header id="home">
+        <span class="section-tag" style="color: var(--accent);">Est. 2024</span>
+        <h1>Divine Design Health</h1>
+        <p>Architecting Superior Ambulatory Care and Allied Medical Solutions with a Divine Commitment to Your Physical Resilience</p>
+        <div class="scroll-indicator">Explore Excellence ▼</div>
     </header>
 
-    <section>
-        <div class="container">
-            <div class="about-wrap">
-                <div class="about-text">
-                    <span class="tagline">Our Mission</span>
-                    <h2 class="section-title">Compassionate Care in Los Angeles</h2>
-                    <p>Located in the heart of Los Angeles, California, Divine Design Health LLC is a specialized provider in the Other Ambulatory Health Care Services industry. We operate within the broader Health Care and Social Assistance sector, committed to providing high-integrity allied health services.</p>
-                    <p>Under the professional leadership of Key Principal <strong>Debra Kreuter</strong>, our studio is dedicated to delivering medical support tailored to individual and family health objectives. Our headquarters at 500 S Sepulveda Blvd ensures a central anchor for health services in the regional community.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1505751172107-573225a94206?auto=format&fit=crop&q=80&w=1000" alt="Los Angeles Health Center" style="width: 100%; border-radius: 4px; box-shadow: 20px 20px 0 var(--surface-light);">
-                </div>
+    <section class="section-padding about-section">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-title">A Vision for Restorative Excellence</h2>
+        <div class="about-content">
+            <p>Divine Design Health LLC is a premier professional provider within the ambulatory healthcare sector, dedicated to redefining the patient experience through structural precision and compassionate care. Located in the heart of Los Angeles, we specialize in delivering sophisticated medical and social assistance services designed to foster long-term vitality. Our philosophy is rooted in the belief that every health journey is a unique architectural project that requires the right balance of expertise, monitoring, and personal support. We integrate advanced clinical knowledge with a deep understanding of the social components that drive successful recovery. At Divine Design Health, we don't just provide services; we partner with you to rebuild and maintain the highest standard of physical and emotional health.</p>
+        </div>
+    </section>
+
+    <section class="section-padding services-section">
+        <span class="section-tag">What We Provide</span>
+        <h2 class="section-title">Specialized Clinical Pillars</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Ambulatory Oversight</h3>
+                <p>We offer specialized outpatient medical services for patients who require consistent practitioner monitoring without the necessity of hospital admission. Our protocols are designed for efficiency and safety, ensuring you receive elite care while maintaining your daily routines. We focus on acute recovery and the management of chronic conditions through expert clinical intervention.</p>
+            </div>
+            <div class="service-card">
+                <h3>Integrated Allied Health</h3>
+                <p>Our practitioners serve as the central hub for your multidisciplinary health needs, coordinating between diagnostic labs and specialized therapeutic providers. We ensure that every piece of your medical puzzle fits together seamlessly, eliminating the friction often found in complex health systems. Our integration model is built for speed and absolute medical accuracy.</p>
+            </div>
+            <div class="service-card">
+                <h3>Resilience Architecture</h3>
+                <p>We provide long-term health strategy design, focusing on preventative measures and life-stage wellness planning. By analyzing your individual physiological data, we create bespoke health blueprints that empower you to proactively manage your well-being. This service is designed to transform temporary recovery into permanent, thriving health foundations.</p>
             </div>
         </div>
     </section>
 
-    <section class="services">
-        <div class="container">
-            <span class="tagline">Expertise</span>
-            <h2 class="section-title">Specialized Health Care Sectors</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>Ambulatory Services</h3>
-                    <p>Providing expert medical and allied health support within the ambulatory care framework, ensuring professional outpatient assistance.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Individual & Family Care</h3>
-                    <p>Operating within the Health Care and Social Assistance industry to provide specialized support for varied community needs.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Health Support Strategy</h3>
-                    <p>Delivering high-integrity allied services to help patients navigate their health journeys with professional guidance.</p>
-                </div>
+    <section class="section-padding advantages-section">
+        <span class="section-tag">Our Edge</span>
+        <h2 class="section-title" style="color: white;">The Professional Difference</h2>
+        <div class="advantages-grid">
+            <div class="advantage-item">
+                <h4>Clinical Integrity</h4>
+                <p>We adhere to the most rigorous standards of the medical practitioner sector, ensuring that every decision is backed by verified clinical evidence.</p>
+            </div>
+            <div class="advantage-item">
+                <h4>Empathetic Design</h4>
+                <p>We recognize the human element in every case, designing care models that are as sensitive to your lifestyle as they are to your symptoms.</p>
+            </div>
+            <div class="advantage-item">
+                <h4>Strategic Longevity</h4>
+                <p>Our focus extends beyond the immediate appointment; we build health systems that support your vitality for years to come.</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <div class="container">
-            <span class="tagline">The Integrity</span>
-            <h2 class="section-title">The Divine Design Standard</h2>
-            <div class="edge-block">
-                <div class="edge-item">
-                    <h3>Executive Stewardship</h3>
-                    <p>Debra Kreuter personally oversees our health care standards, ensuring executive-level accountability for every patient interaction.</p>
-                </div>
-                <div class="edge-item">
-                    <h3>Sector Mastery</h3>
-                    <p>As a established entity in the Health Care and Social Assistance sector, we apply rigorous professional protocols to all services.</p>
-                </div>
-                <div class="edge-item">
-                    <h3>Los Angeles Anchor</h3>
-                    <p>Our strategic location at 500 S Sepulveda Blvd provides a critical anchor for ambulatory care in the regional market.</p>
-                </div>
+    <section class="section-padding process-section">
+        <span class="section-tag">How We Work</span>
+        <h2 class="section-title">The Path to Divine Health</h2>
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-circle">01</div>
+                <h4>Discovery & Audit</h4>
+                <p>A comprehensive clinical assessment to identify your physiological needs and social support environment.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">02</div>
+                <h4>Design & Strategy</h4>
+                <p>Developing your custom ambulatory care protocol and coordinating with our network of specialized allied providers.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">03</div>
+                <h4>Execution & Care</h4>
+                <p>Implementation of your health plan with continuous professional monitoring and real-time data-driven adjustments.</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <div class="container">
-            <div class="contact-wrap">
-                <div>
-                    <span class="tagline">Inquiry</span>
-                    <h2 class="section-title">Initialize Consultation</h2>
-                    <p>Contact our Los Angeles headquarters to discuss service catalogs, patient care pathways, or professional health partnerships.</p>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label>Professional Email</label>
-                            <input type="email" class="form-control" placeholder="info@divinedesignhealthus.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Service Requirement</label>
-                            <textarea class="form-control" rows="5" placeholder="Outline your health care or social assistance requirements..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Execute Link</button>
-                    </form>
-                </div>
+    <section class="section-padding contact-section">
+        <div class="contact-container">
+            <h2 class="section-title">Initialize Your Care</h2>
+            <p class="form-info-text">Our senior practitioners are ready to discuss your health objectives. Please provide your contact details below.</p>
+            
+            <div class="input-group">
+                <label>Full Name / Patient Representative</label>
+                <div class="input-placeholder">Enter your full legal name</div>
             </div>
+
+            <div class="input-group">
+                <label>Secure Corporate Email</label>
+                <div class="input-placeholder">example@domain.com</div>
+            </div>
+
+            <div class="input-group">
+                <label>Nature of Medical Inquiry</label>
+                <div class="input-placeholder" style="height: 120px;">Describe your current health goals or the type of assistance required...</div>
+            </div>
+
+            <div class="submit-trigger">Submit Professional Inquiry</div>
+            <p style="text-align:center; font-size: 0.8rem; margin-top: 20px; color: #999;">
+                All communications are handled according to HIPAA clinical confidentiality standards.
+            </p>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h2>Divine Design Health</h2>
-                    <p>Professional Integrity. California Care.</p>
-                </div>
-                <div class="footer-info">
-                    <p><strong>Headquarters:</strong> 500 S Sepulveda Blvd FL 4, Los Angeles, CA, 90049-3550 United States</p>
-                    <p><strong>Primary Contact:</strong> info@divinedesignhealthus.com</p>
-                </div>
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <h2>Divine Design Health LLC</h2>
+                <p style="margin-top: 20px;">Leading the way in professional ambulatory health and restorative social assistance.</p>
             </div>
-            <div class="copyright">
-                &copy; 2026 Divine Design Health LLC. All Rights Reserved. Principal: Debra Kreuter.
+            <div class="footer-contact">
+                <h4>HQ Location</h4>
+                <p>500 S Sepulveda Blvd FL 4</p>
+                <p>Los Angeles, CA, 90049-3550</p>
+                <p>United States</p>
             </div>
+            <div class="footer-contact">
+                <h4>Electronic Inquiry</h4>
+                <p>General: info@divinedesignhealthus.com</p>
+                <p>Appointments: support@divinedesignhealthus.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Divine Design Health LLC. Professional, Scientific, and Technical Health Services Group.
         </div>
     </footer>
 
